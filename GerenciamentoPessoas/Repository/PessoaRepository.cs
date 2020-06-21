@@ -170,6 +170,8 @@ namespace GerenciamentoPessoas.Repository
 
                 var command = connection.CreateCommand();
                 command.CommandText = sql;
+                command.Parameters.AddWithValue("P1", query);
+                command.Parameters.AddWithValue("P2", query);
                 command.CommandType = System.Data.CommandType.Text;
 
                 connection.Open();
