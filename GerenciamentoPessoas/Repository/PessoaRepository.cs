@@ -163,10 +163,10 @@ namespace GerenciamentoPessoas.Repository
 
             using (SqlConnection connection = new SqlConnection(this.ConnectionString))
             {
-                string sql = @"
+                 string sql = @"
                         SELECT ID, NOME, SOBRENOME, DATANASCIMENTO
                         FROM PESSOA
-                        WHERE (NOME LIKE '%" + query + "%' OR SOBRENOME LIKE '%" + query + "%')";
+                        WHERE (NOME LIKE '%' + @P1 +'%' OR SOBRENOME LIKE '%' + @P2 + '%')";
 
                 var command = connection.CreateCommand();
                 command.CommandText = sql;
